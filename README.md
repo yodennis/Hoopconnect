@@ -351,6 +351,77 @@ Visit **http://localhost:3000**
 
 ---
 
+## Setup & Installation
+
+### Prerequisites
+- Node.js (v14+)
+- MySQL (local or remote)
+- GitHub account (for collaboration)
+
+### Quick Start
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yodennis/Hoopconnect.git
+   cd Hoopconnect
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment:**
+   Create a `.env` file in the project root:
+   ```env
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASSWORD=your_password
+   DB_NAME=hoopconnect
+   DB_PORT=3306
+   PORT=3000
+   NODE_ENV=development
+   SESSION_SECRET=your-secret-key
+   ```
+
+4. **Set up database:**
+   ```bash
+   mysql -u root -p < database/schema.sql
+   mysql -u root -p hoopconnect < database/seed.sql
+   ```
+
+5. **Start the server:**
+   ```bash
+   node server.js
+   ```
+
+6. **Open in browser:**
+   Navigate to `http://localhost:3000`
+
+### File Structure
+```
+├── server.js              # Main Express app
+├── config/
+│   └── db.js             # Database connection pool
+├── middleware/
+│   ├── auth.js           # Authentication
+│   ├── errorHandler.js   # Error handling
+│   ├── rateLimit.js      # Rate limiting
+│   ├── sanitize.js       # Input sanitization
+│   └── cache.js          # Caching
+├── routes/               # API endpoints
+├── public/
+│   ├── index.html        # Landing page
+│   ├── css/style.css     # Styles
+│   ├── js/               # Frontend JavaScript
+│   └── uploads/          # User uploads
+├── database/
+│   ├── schema.sql        # Database structure
+│   └── seed.sql          # Sample data
+└── package.json          # Dependencies
+```
+
+---
+
 ## Example User Flows
 
 ### Player Joins a Game
