@@ -113,6 +113,39 @@ Then go to GitHub and create a Pull Request. Project lead will review and merge.
 - **`routes/`** — Backend code (API endpoints, login, games, teams, etc.)
 - **`server.js`** — Main app file
 
+## Understanding Database Keys (For Beginners)
+
+### Primary Key (PK)
+- A unique ID that identifies each row in a table
+- Like a student ID—no two students share the same ID
+- Example: `user_id` in the `users` table (first person = user_id 1, second = user_id 2, etc.)
+- Shows as `PRI` in phpMyAdmin
+
+### Foreign Key (FK)
+- A link from one table to another table's primary key
+- Like saying "this team belongs to user_id 5" (the captain)
+- Creates relationships between tables
+- Example: `teams` table has `captain_id` which points to a `user_id` in the `users` table
+- Shows as `MUL` in phpMyAdmin
+
+### Why This Matters
+- Keeps data organized and connected
+- Prevents duplicate data
+- Ensures data integrity (can't delete a user if they own a team)
+
+### See It In XAMPP
+1. Open XAMPP Control Panel → Start MySQL
+2. Click Admin button next to MySQL (opens phpMyAdmin)
+3. Click `hoopconnect` database on the left
+4. Click any table (like `teams` or `games`)
+5. Click the "Structure" tab at the top
+6. Look at the "Key" column:
+   - `PRI` = Primary Key
+   - `MUL` = Foreign Key reference
+7. The `teams` table has:
+   - `team_id` = PRI (primary key, unique ID for each team)
+   - `captain_id` = MUL (foreign key, links to user_id in users table)
+
 ## Stuck?
 
 - **Server won't start?** → Check `.env` file matches your MySQL setup
