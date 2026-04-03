@@ -389,4 +389,67 @@ Visit **http://localhost:3000**
 
 ---
 
+## Collaboration & Version Control
+
+This project uses Git for version control to enable collaboration with classmates and team members.
+
+### Setting Up Remote Repository
+
+1. **Create a GitHub Repository:**
+   - Go to [github.com](https://github.com) and sign in
+   - Click "New repository"
+   - Name it `hoopconnect` or `pickupplay`
+   - Make it **Public** (so classmates can access it)
+   - **Do NOT** initialize with README, .gitignore, or license (we already have these)
+   - Click "Create repository"
+
+2. **Connect Local Repository to GitHub:**
+   ```bash
+   # Add the remote repository (replace YOUR_USERNAME with your GitHub username)
+   git remote add origin https://github.com/YOUR_USERNAME/hoopconnect.git
+
+   # Push your code to GitHub
+   git push -u origin master
+   ```
+
+3. **Share with Classmates:**
+   - Give them the repository URL: `https://github.com/YOUR_USERNAME/hoopconnect.git`
+   - They can clone it with: `git clone https://github.com/YOUR_USERNAME/hoopconnect.git`
+   - For collaboration, they should create their own branches for features
+
+### Collaboration Workflow
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/hoopconnect.git
+   cd hoopconnect
+   ```
+
+2. **Create a feature branch:**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make changes and commit:**
+   ```bash
+   git add .
+   git commit -m "Add your feature description"
+   ```
+
+4. **Push your branch:**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+5. **Create a Pull Request on GitHub to merge your changes**
+
+### Important Notes
+
+- **Never commit sensitive data** like passwords, API keys, or database credentials
+- The `.env` file is in `.gitignore` - each developer should create their own
+- Use descriptive commit messages
+- Pull latest changes before starting work: `git pull origin master`
+
+---
+
 *Built as a term project demonstrating relational database design with a real-world use case.*
