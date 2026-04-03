@@ -120,6 +120,7 @@ Then go to GitHub and create a Pull Request. Project lead will review and merge.
 - Like a student ID—no two students share the same ID
 - Example: `user_id` in the `users` table (first person = user_id 1, second = user_id 2, etc.)
 - Shows as `PRI` in phpMyAdmin
+- **ONE of each — no duplicates allowed**
 
 ### Foreign Key (FK)
 - A link from one table to another table's primary key
@@ -127,11 +128,30 @@ Then go to GitHub and create a Pull Request. Project lead will review and merge.
 - Creates relationships between tables
 - Example: `teams` table has `captain_id` which points to a `user_id` in the `users` table
 - Shows as `MUL` in phpMyAdmin
+- **A foreign key says: "This row belongs to that primary key in another table"**
+
+### Simple Visual Example
+```
+USERS table:
+user_id (PRI)  | username
+1              | alice
+2              | bob
+3              | carlos
+
+TEAMS table:
+team_id (PRI)  | team_name    | captain_id (FK)
+100            | Tigers       | 1  ← points to alice
+101            | Eagles       | 2  ← points to bob
+102            | Hawks        | 3  ← points to carlos
+```
+
+The `captain_id = 1` in teams table means "this team's captain is the user with `user_id = 1` (alice) from the users table"
 
 ### Why This Matters
 - Keeps data organized and connected
 - Prevents duplicate data
 - Ensures data integrity (can't delete a user if they own a team)
+
 
 ### See It In XAMPP
 1. Open XAMPP Control Panel → Start MySQL
