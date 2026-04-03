@@ -127,26 +127,4 @@ router.get('/', sanitizeInput({
     }
 });
 
-        const [teams] = await pool.query(
-            `SELECT t.team_id, t.team_name, s.sport_name, t.skill_level
-             FROM teams t JOIN sports s ON t.sport_id = s.sport_id
-             WHERE t.team_name LIKE ?
-             ORDER BY t.created_at DESC LIMIT 10`,
-            [term]
-        );
-
-        const [courts] = await pool.query(
-            `SELECT location_id, location_name, city, state, indoor_outdoor
-             FROM locations WHERE location_name LIKE ? OR city LIKE ? OR address LIKE ?
-             LIMIT 10`,
-            [term, term, term]
-        );
-
-        res.json({ players, games, teams, courts });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error.' });
-    }
-});
-
 module.exports = router;
